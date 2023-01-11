@@ -1,0 +1,56 @@
+<div class="cont1">
+    <img src="../../assets/images/contact.jpg" width="450px" height="200px"/>
+</div>
+<div class="container">
+<div class="example-container">
+    <mat-form-field hintLabel="Max 20 characters" appearance="fill">
+        <mat-label>Enter First Name</mat-label>
+        <input matInput #firstname maxlength="20" placeholder="Ex. John">
+        <mat-hint align="end">{{firstname.value.length}}/20</mat-hint>
+      </mat-form-field>
+    
+  </div>
+  <div class="example-container">
+  
+    <mat-form-field hintLabel="Max 20 characters" appearance="fill">
+        <mat-label>Enter Last Name</mat-label>
+        <input matInput #lastname maxlength="20" placeholder="Ex. Datta">
+        <mat-hint align="end">{{lastname.value.length}}/20</mat-hint>
+      </mat-form-field>
+  
+  </div>
+
+  <div class="example-container">
+    
+    <mat-form-field hintLabel="Max 40 characters" appearance="fill">
+        <mat-label>Enter Email ID</mat-label>
+        <input matInput #email maxlength="40" placeholder="Ex. ayantika@gmail.com">
+        <mat-hint align="end">{{email.value.length}}/40</mat-hint>
+      </mat-form-field>
+ 
+  </div>
+
+  <div class="example-container">
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Store Name</mat-label>
+        <mat-select>
+          <mat-option value="ABC Store">ABC Store</mat-option>
+          <mat-option value="DEF Store">DEF Store</mat-option>
+          <mat-option value="GFH Store">GFH Store</mat-option>
+          <mat-option value="YUJ Store">YUJ Store</mat-option>
+          <mat-option value="VFG Store">CDF Store</mat-option>
+        </mat-select>
+      </mat-form-field>
+   
+    </div>
+  <div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Comments</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  </div>
+  <div class="example-container">
+    <button mat-raised-button color="accent" (click)="contactSubmit()">SAVE</button>
+  </div>
+  </div>

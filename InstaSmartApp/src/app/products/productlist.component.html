@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-header>{{pageTitle}}</mat-card-header>
+    <mat-card-content class="cont">
+
+        <mat-card class="example-card" *ngFor="let pr of products" class="innercont"> 
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{pr.name}}</mat-card-title>
+                <mat-card-subtitle>{{pr.id}}</mat-card-subtitle>
+                <img mat-card-xl-image [src]="pr.imageUrl" style="width: 150px; height: 100px; margin:25px;">
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+              {{pr.description}}
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button mat-raised-button color="primary" (click)="productSelected(pr)" style="margin:8px;"><span class="material-icons"> edit</span>EDIT</button>
+              <button mat-raised-button color="warn" (click)="deleteProduct(pr)" style="margin: 8px;"><i class="material-icons">delete</i>DELETE</button>
+            </mat-card-actions>
+            <mat-card-actions>
+              <button class="btn btn-success" [routerLink]="['/products',pr.id]">View Details</button>
+            </mat-card-actions>
+          </mat-card>
+
+
+    </mat-card-content>
+
+</mat-card>
+<div style="text-align: center;">
+<button mat-raised-button color="primary" (click)="newProduct()">ADD NEW PRODUCT</button>
+</div>
+<router-outlet></router-outlet>

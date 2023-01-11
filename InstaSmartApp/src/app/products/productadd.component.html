@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+          {{pageTitle}}
+        </div>
+        <div class="card-body">
+
+        <form class="example-form" [formGroup]="addProduct"
+        (ngSubmit)="saveProduct(product)">
+
+        <div class="example-container">
+            <mat-form-field class="example-full-width">
+              <mat-label>PRODUCT ID</mat-label>
+              <input matInput #id maxlength="5" placeholder="Ex. P001" name="id" formControlName="id">
+              <mat-hint align="start"><strong>Enter The Product Id</strong> </mat-hint>
+              <mat-hint align="end">{{id.value.length}} / 5</mat-hint>
+            </mat-form-field>
+</div>
+<div class="example-container">
+            <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT NAME</mat-label>
+                <input matInput #name placeholder="Ex. Product Name" name="name" formControlName="name">
+                <mat-hint align="start"><strong>Enter The Product Name</strong> </mat-hint>
+                <mat-hint align="end">{{name.value.length}} / 25</mat-hint>
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT IMAGE URL</mat-label>
+                <input matInput #imageUrl maxlength="50" placeholder="Ex. ../url" name="imageUrl" formControlName="imageUrl">
+                <mat-hint align="start"><strong>Enter The Product Image Url</strong> </mat-hint>
+                <mat-hint align="end">{{imageUrl.value.length}} / 50</mat-hint>
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT DESCRIPTION</mat-label>
+                <input matInput #description maxlength="200" placeholder="Ex. This is an apple" name="description" formControlName="description">
+                <mat-hint align="start"><strong>Enter Something About the product</strong> </mat-hint>
+                <mat-hint align="end">{{description.value.length}} / 200</mat-hint>
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT PRICE</mat-label>
+                <input matInput #price placeholder="Ex. 1000" name="price" formControlName="price">
+                <mat-hint align="start"><strong>Enter the product price</strong> </mat-hint>
+               
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT CATEGORY</mat-label>
+                <input matInput #category maxlength="25" placeholder="Ex. Grocery" name="category" formControlName="category">
+                <mat-hint align="start"><strong>Enter The Product Category</strong> </mat-hint>
+                <mat-hint align="end">{{category.value.length}} / 25</mat-hint>
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT SELLER NAME</mat-label>
+                <input matInput #sellerName maxlength="25" placeholder="Ex. ABC Seller" name="sellerName" formControlName="sellerName">
+                <mat-hint align="start"><strong>Enter The Product Seller Name</strong> </mat-hint>
+                <mat-hint align="end">{{sellerName.value.length}} / 25</mat-hint>
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT SELLER LOCATION</mat-label>
+                <input matInput #sellerLocation maxlength="25" placeholder="Ex. Kolkata" name="sellerLocation" formControlName="sellerLocation">
+                <mat-hint align="start"><strong>Enter The Product Seller Location</strong> </mat-hint>
+                <mat-hint align="end">{{sellerLocation.value.length}} / 25</mat-hint>
+              </mat-form-field>
+</div>
+<div class="example-container">
+              <mat-form-field class="example-full-width">
+                <mat-label>PRODUCT QUANTITY</mat-label>
+                <input matInput #quantity placeholder="0" name="quantity" formControlName="quantity">
+                <mat-hint align="start"><strong>Enter the product quantity</strong> </mat-hint>
+                
+              </mat-form-field>
+              </div>
+
+
+              <button id="btn1" [disabled]='!addProduct.valid ||!addProduct.dirty' class="btn btn-success">SAVE</button>
+          </form>
+    </div>
+    </div>
+    </div>

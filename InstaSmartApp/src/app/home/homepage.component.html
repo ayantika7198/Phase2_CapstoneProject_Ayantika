@@ -1,0 +1,65 @@
+<!--<div class="container-fluid">
+  
+      
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let image of images">
+        <div class="wrapper">
+          <img [src]="image.src" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{ image.title }}</h3>
+          <p>{{ image.short }}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+        
+    </div>-->
+<div class="container">
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[0].src" alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 style="color: black;">Welcome To Our InstaSmart</h3>
+                <p style="color: black;">The Smartest E-Commerce Application</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[1].src" alt="Random second slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 style="color: black;">Upgrade Yourself with a new Mobile</h3>
+                <p style="color: black;">Look at our products once</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[2].src" alt="Random third slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 style="color: black;">Buy A New Electronic Device</h3>
+                <p style="color: black;">Look at our new Fridge, TV s</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[3].src" alt="Random fourth slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 style="color: black;">Always fill your home with groceries</h3>
+                <p style="color: black;">Get Delivered The Grocery items within 1 day with InstaSmart</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[4].src" alt="Random fourth slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 style="color: black;">Stay Healthy With Fruits</h3>
+                <p style="color: black;">Get Delivered the Fruits within 1 day with InstaSmart</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    </div>

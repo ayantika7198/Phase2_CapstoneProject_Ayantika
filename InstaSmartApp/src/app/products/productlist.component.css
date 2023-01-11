@@ -1,0 +1,13 @@
+.innercont{
+    width: 350px;
+    
+    margin:20px;
+    padding: 50px;
+    background-color: #e3f2fd;;
+}
+.cont{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}

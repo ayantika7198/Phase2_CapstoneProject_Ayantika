@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card" style="padding: 40px;">
+        <img class="card-img-top" [src]="prd?.imageUrl" alt="Card image cap" width="400px" height="350px">
+        <div class="card-body">
+          <h5 class="card-title">{{prd?.name}}</h5>
+        </div>
+      </div>
+      <div class="card" style="margin-left: 50px;">
+        <div class="card-body">
+            <table class="table table-hover table-secondary table-striped table-bordered tbl">
+                <tbody>
+                  <tr>
+                    <td>Product Id</td>
+                    <td>{{prd?.id}}</td>
+                  </tr>
+                  <tr>
+                      <td>Product Name</td>
+                      <td>{{prd?.name}}</td>
+                  </tr>
+                  <tr>
+                      <td>Product Price</td>
+                        <td>Rs. {{prd?.price}}</td>
+                  </tr>
+                  <tr>
+                      <td>Product Category</td>
+                      <td>{{prd?.category}}</td>
+                  </tr>
+                  <tr>
+                      <td>Product Description</td>
+                      <td>{{prd?.description}}</td>
+                  </tr>
+                  <tr>
+                      <td>Seller Name</td>
+                      <td>{{prd?.sellerName}}</td>
+                  </tr>
+                  <tr>
+                      <td>Seller Location</td>
+                      <td>{{prd?.sellerLocation}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="cartbutton">
+                  <button class="btn btn-success" style="width: 90%;"><i class="material-icons" style="margin-right: 8px;">shopping_cart</i>ADD TO CART</button>
+              </div>
+
+        </div>
+      </div>
+</div>
