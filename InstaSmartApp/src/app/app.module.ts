@@ -4,8 +4,6 @@ import { MaterialExampleModule } from 'src/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopheaderComponent } from './navbar/topheader.component';
-import { HeaderComponent } from './navbar/header.component';
 import { HomepageComponent } from './home/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,19 +16,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './navbar/header.component';
+import { TopheaderComponent } from './navbar/topheader.component';
+import { CartModule } from './cart/cart.module';
+import { PaymentComponent } from './payment/payment.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopheaderComponent,
-    HeaderComponent,
     HomepageComponent,
     PagenotfoundComponent,
     AboutUsComponent,
-    ContactusComponent
+    ContactusComponent,
+    HeaderComponent,
+    TopheaderComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MaterialExampleModule,
     HttpClientModule,
@@ -39,7 +45,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AppEffects]),
-    NgbModule
+    NgbModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    width: 100%;
+    padding: 30px;
+}
+.cont1{
+    width: 50%;
+}
+.cont2{
+    width: 50%;
+    padding: 30px;
+    padding-left:140px;
+}
+.total{
+    text-align: center;
+    padding:10px;
+    background-color: lightgreen;
+    font-size: 20px;
+    font-weight: bold;
+}
+.innerdiv{
+    display: flex;
+    width: 100%;
+}
+button{
+    width: 50%;
+    margin: 8px;
+}

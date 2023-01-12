@@ -1,0 +1,95 @@
+
+<div class="parent">
+    <div class="div1">
+<div class="container" *ngIf="cont1">
+<div class="card text-center">
+    <div class="card-header" style="font-weight: bold; font-style: italic; font-size: 20px;">
+        InstaSmart
+    </div>
+    <div class="card-body">
+        <div>
+      <button class="btn btn-success btn-lg" (click)="apply()">Apply Coupons</button>
+      </div>
+      <div>
+      <button class="btn btn-success btn-lg">Pay With NetBanking</button>
+      </div>
+    </div>
+
+
+
+    <div class="container2">
+        <div class="card text-center">
+            <div class="card-header" style="font-style: italic;">
+              PAY WITH CARD
+            </div>
+            <div class="card-body">
+                <form [formGroup]="addPayment">
+                    <div class="example-container">
+                        <mat-form-field hintLabel="Max 12 numbers" appearance="fill" class="full-width-field">
+                            <mat-label>Enter Credit Card Number</mat-label>
+                            <input matInput #card maxlength="12" pattern="[0-9]{12}" placeholder="Ex. Enter Your Card Number" name="card" formControlName="card"/>
+                            <mat-hint align="end">{{card.value.length}}/12</mat-hint>
+                            <mat-error *ngIf="myError('card', 'required')">Credit Card Number is required</mat-error>
+                            <mat-error *ngIf="myError('card','minlength')">Length of Card number is 12</mat-error>
+                            <mat-error *ngIf="myError('card','pattern')">Please Provide Your Correct Card Number</mat-error>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="example-container">
+                        <mat-form-field hintLabel="Max 30 characters" appearance="fill" class="full-width-field">
+                            <mat-label>Enter Card Holder Name</mat-label>
+                            <input matInput #name maxlength="30" placeholder="Ex. Enter Card Holder Name" name="name" formControlName="name"/>
+                            <mat-hint align="end">{{name.value.length}}/30</mat-hint>
+                            <mat-error *ngIf="myError('name', 'required')">Credit Card Holder Name is required</mat-error>
+                            <mat-error *ngIf="myError('name','minlength')">Minimum Length of Card Holder Name is 5</mat-error>
+                            <mat-error *ngIf="myError('name','pattern')">Please Provide Card Holder Name Correctly</mat-error>
+                          </mat-form-field>
+                    </div>
+                    <div class="example-container">
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Card Expiry Date</mat-label>
+                        <input name="date" formControlName="date" matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                      </mat-form-field>
+                      </div>
+
+                    <div class="example-container">
+                        <mat-form-field hintLabel="Max 3 characters" appearance="fill" class="full-width-field">
+                            <mat-label>Enter CVV</mat-label>
+                            <input matInput #cvv maxlength="3" placeholder="Ex. Card CVV" name="cvv" formControlName="cvv"/>
+                            <mat-hint align="end">{{cvv.value.length}}/3</mat-hint>
+                            <mat-error *ngIf="myError('cvv', 'required')">Credit Card CVV Number is required</mat-error>
+                            
+                            <mat-error *ngIf="myError('cvv','maxlength')">Maximum Length of CVV is 3</mat-error>
+                          </mat-form-field>
+                    </div>
+
+                    <button id="btn1" [disabled]='!addPayment.valid ||!addPayment.dirty' class="btn btn-success" (click)="afterPay()">SUBMIT</button>
+                
+                  </form>
+            </div>
+            
+          </div>
+          </div>
+  </div>
+  </div>
+
+  
+
+  <div class="afterpay" *ngIf="cont2">
+    <p style="color: green; text-align: center; font-size: 40px; font-weight: bold; font-style: italic;">Thank You for Shopping With Us</p>
+    <p style="color: green; text-align: center; font-size: 40px; font-weight: bold; font-style: italic;">Continue your Shopping</p>
+    <div style="text-align: center; width: 100%;">
+        <button class="btn btn-success" (click)="shop()" style="width: 50%;">Continue Shopping</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="div2">
+    <img src="../../assets/images/paymenticon.png" width="350px" height="400px"/>
+  </div>
+
+  </div>

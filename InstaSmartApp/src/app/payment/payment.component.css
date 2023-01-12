@@ -1,0 +1,40 @@
+.container{
+    width: 70%;
+    margin:auto;
+    margin-top:30px;
+}
+button{
+    margin:auto;
+    width: 60;
+    margin: 10px;
+}
+
+.container2{
+    width: 70%;
+    margin:auto;
+    padding: 40px;
+    background-color: lightgreen;
+    border:none;
+    border-radius: 25px;
+}
+mat-form-field{
+    width: 90%;
+}
+
+.parent{
+    display: flex;
+}
+
+.div1{
+    width: 60%;
+}
+
+.div2{
+    width: 40%;
+    padding:30px;
+}
+
+.cont2{
+    margin:30px;
+    padding: 10px;
+}

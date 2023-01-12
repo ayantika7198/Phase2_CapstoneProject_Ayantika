@@ -1,16 +1,15 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { ProductState } from "./product.state";
+import { CartState } from "./cart.state";
 
-const getProductFeatureState= createFeatureSelector<ProductState>('products');
-
+const getCartFeatureState= createFeatureSelector<CartState>('carts');
 
 export const getCurrentProductId= createSelector(
-    getProductFeatureState,
+    getCartFeatureState,
     state=> state.currentProductId
 );
 
 export const getCurrentProduct= createSelector(
-    getProductFeatureState,
+    getCartFeatureState,
     getCurrentProductId,
     (state, currentProductId)=>{
         if(currentProductId===''){
@@ -31,12 +30,12 @@ export const getCurrentProduct= createSelector(
     }
 );
 
-export const getProducts= createSelector(
-    getProductFeatureState,
+export const getCartitems= createSelector(
+    getCartFeatureState,
     state=> state.products
 );
 
-export const getError= createSelector(
-    getProductFeatureState,
+export const getCartErrors= createSelector(
+    getCartFeatureState,
     state=> state.error
 );

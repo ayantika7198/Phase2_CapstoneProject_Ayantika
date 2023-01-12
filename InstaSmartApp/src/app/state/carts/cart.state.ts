@@ -2,17 +2,16 @@ import { IProduct } from 'src/app/products/product';
 import * as AppState from '../app.state';
 
 export interface State extends AppState.State{
-    products: ProductState;
+    carts: CartState;
 }
 
-
-export interface ProductState{
+export interface CartState{
     currentProductId:string| null,
     products: IProduct[],
     error:string
 }
 
-export const initialProductState:ProductState={
+export const initialCartState:CartState={
     currentProductId: null,
     products:[],
     error:''

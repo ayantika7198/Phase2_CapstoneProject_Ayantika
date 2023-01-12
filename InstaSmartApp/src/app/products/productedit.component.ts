@@ -48,6 +48,10 @@ export class ProducteditComponent implements OnInit,OnDestroy{
   
     }
 
+    public myError = (controlName: string, errorName: string) =>{
+      return this.addProduct.controls[controlName].hasError(errorName);
+      }
+
     get id(){
       return this.addProduct.get("id");
     }

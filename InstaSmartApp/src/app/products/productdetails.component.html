@@ -39,8 +39,19 @@
                   </tr>
                 </tbody>
               </table>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Quantity</label>
+                <input type="number" class="form-control" [(ngModel)]="prd.quantity" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Quantity">
+                <small id="emailHelp" class="form-text text-muted">Enter Quantity of the Product You want</small>
+              </div>
+
+
               <div class="cartbutton">
-                  <button class="btn btn-success" style="width: 90%;"><i class="material-icons" style="margin-right: 8px;">shopping_cart</i>ADD TO CART</button>
+                  <button class="btn btn-success" style="width: 90%;" (click)="addToCart(prd)"><i class="material-icons" style="margin-right: 8px;">shopping_cart</i>ADD TO CART</button>
+              </div>
+              <div class="back">
+                <button class="btn btn-danger" style="width: 70%;" (click)="back()">BACK TO PRODUCTS</button>
               </div>
 
         </div>
