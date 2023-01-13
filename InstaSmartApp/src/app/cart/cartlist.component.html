@@ -11,12 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pr of products">
+      <tr *ngFor="let pr of products, let i=index">
         <td>{{pr.id}}</td>
         <td>{{pr.name}}</td>
         <td><img [src]="pr.imageUrl" width="100px" height="100px"/></td>
-        <td>{{pr.quantity}}</td>
-        <td><span class="material-icons" (click)="deleteProduct(pr)">delete</span></td>
+        <td>
+          <input type="number" class="form-control" min=0 value="1" [(ngModel)]="qty[i]" (input)="calculate()" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Quantity">
+          </td>
+        <td><span class="material-icons" (click)="deleteProduct(pr, i)">delete</span></td>
       </tr>
     </tbody>
   </table>

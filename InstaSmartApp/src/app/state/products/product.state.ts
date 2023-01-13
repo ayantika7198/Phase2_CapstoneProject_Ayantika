@@ -7,9 +7,9 @@ export interface State extends AppState.State{
 
 
 export interface ProductState{
-    currentProductId:string| null,
-    products: IProduct[],
-    error:string
+    currentProductId:string| null;
+    products: IProduct[];
+    error:string;
 }
 
 export const initialProductState:ProductState={
@@ -17,3 +17,24 @@ export const initialProductState:ProductState={
     products:[],
     error:''
 }
+
+
+/*
+import { IProduct } from "src/app/products/product";
+import * as AppState from '../app.state';
+
+export interface State extends AppState.State {
+    products: ProductState;
+  }
+  export interface ProductState{
+    currentProductId:string | null;
+    products:IProduct[];
+    error:string;
+  }
+  
+  export const initialState:ProductState={
+    currentProductId:null,
+    products:[],
+    error:''
+  }
+  */

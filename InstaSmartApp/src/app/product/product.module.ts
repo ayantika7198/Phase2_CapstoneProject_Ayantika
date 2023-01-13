@@ -11,7 +11,6 @@ import { MaterialExampleModule } from 'src/material.module';
 import { ProductaddComponent } from '../products/productadd.component';
 import { ProducteditComponent } from '../products/productedit.component';
 import { ProductdetailsComponent } from '../products/productdetails.component';
-import { CartlistComponent } from '../cart/cartlist.component';
 import { CartEffects } from '../state/carts/cart.effects';
 import { cartReducer } from '../state/carts/cart.reducer';
 

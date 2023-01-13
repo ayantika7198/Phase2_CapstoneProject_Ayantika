@@ -7,6 +7,7 @@ import { State } from '../state/carts/cart.state';
 import { IProduct } from './product';
 import * as CartActions from '../state/carts/cart.actions';
 
+
 @Component({
   selector: 'app-productdetails',
   templateUrl: './productdetails.component.html',
@@ -15,7 +16,7 @@ import * as CartActions from '../state/carts/cart.actions';
 export class ProductdetailsComponent implements OnInit, OnDestroy{
 
   id:string='';
-  prd!:IProduct;
+  prd!:IProduct | null | undefined;
   sub!:Subscription;
   errorMessage:string='';
 
@@ -50,9 +51,13 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
     this.sub.unsubscribe();
   }
 
-  addToCart(product:IProduct):void{
+  addToCart(product:IProduct | null | undefined):void{
+
+    if(product){
+
 
       this.store.dispatch(CartActions.createCartitem({product}));
+    }
   }
 
 }

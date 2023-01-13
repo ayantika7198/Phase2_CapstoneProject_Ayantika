@@ -7,7 +7,6 @@ import { IProduct } from "../products/product";
 @Injectable({
     providedIn: 'root'
 })
-
 export class ProductService{
 
     foundIndex:number=0;
@@ -52,7 +51,7 @@ export class ProductService{
      
        }
 
-       changeSelectedProduct(selectedProduct: IProduct|null):void{
+       changeSelectedProduct(selectedProduct: IProduct | null):void{
            this.selectedProductSource.next(selectedProduct);
        }
 

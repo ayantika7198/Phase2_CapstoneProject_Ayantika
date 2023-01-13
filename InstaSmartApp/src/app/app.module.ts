@@ -11,7 +11,7 @@ import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in
 import { InMemoryEventDbService } from './shared/inmemoryeventdb.service';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { AppEffects } from './app.effect';
+import { AppEffects } from './app.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -21,6 +21,7 @@ import { TopheaderComponent } from './navbar/topheader.component';
 import { CartModule } from './cart/cart.module';
 import { PaymentComponent } from './payment/payment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './users/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactusComponent,
     HeaderComponent,
     TopheaderComponent,
-    PaymentComponent
+    PaymentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

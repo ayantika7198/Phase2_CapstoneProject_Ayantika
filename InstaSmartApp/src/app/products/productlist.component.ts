@@ -1,35 +1,65 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { map, Observable, shareReplay, Subscription } from 'rxjs';
 import { ProductService } from '../shared/product.service';
 import { getCurrentProduct, getError, getProducts } from '../state/products/product.selectors';
 import { State } from '../state/products/product.state';
 import { IProduct } from './product';
 import * as ProductActions from '../state/products/product.actions';
+import { AuthService } from '../users/authservice';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
-  styleUrls: ['./productlist.component.css']
+  styleUrls: ['./productlist.component.css'],
+  animations:[
+    trigger('change',[
+      state('start',style({
+        width:'180px' , height:'150px'
+       })),
+       state('end',style({
+        height:'170px',width:'220px'
+      })),
+      transition('start=>end',[
+        animate('0s 1s')
+      ]),
+      transition('end=>start',[
+        animate('0s 1s')
+      ])
+
+    ])
+  ]
 })
 export class ProductlistComponent implements OnInit, OnDestroy{
+
 
   errorMessage:string='';
   sub!:Subscription;
   products:IProduct[]=[];
+  filteredProducts:IProduct[]=[];
   href:string='';
   pageTitle:string="List Of Our Products";
+
+  isHover:boolean[]=[false];
 
 
   products$!:Observable<IProduct[]>;
   selectedProduct$!:Observable<any>;
   errorMessage$!: Observable<string>;
 
-  constructor(private productService:ProductService, private router:Router, private store:Store<State>){}
+  data:any;
+
+  showIcon:boolean=false;
+
+  constructor(private productService:ProductService, private router:Router, private store:Store<State>,
+    private authService:AuthService){}
 
   dataReceived=this.productService.getProducts();
   obsProducts$!:Observable<IProduct[]>;
+  @Output() OnProductSelection:EventEmitter<IProduct>=new EventEmitter<IProduct>();
 
 
   ngOnInit(): void {
@@ -37,7 +67,9 @@ export class ProductlistComponent implements OnInit, OnDestroy{
 
     this.products$=this.store.select(getProducts);
 
-    this.products$.subscribe(resp=>{this.products=resp});
+    this.products$.subscribe(resp=>{this.products=resp;
+      this.filteredProducts=this.products;
+    });
 
     this.errorMessage$=this.store.select(getError);
 
@@ -45,8 +77,14 @@ export class ProductlistComponent implements OnInit, OnDestroy{
 
     this.selectedProduct$=this.store.select(getCurrentProduct);
 
+    if(this.authService.currentUser?.isAdmin){
+      this.showIcon=true;
+    }
+
 
   }
+
+
   ngOnDestroy(): void {
     //throw new Error('Method not implemented.');
   }
@@ -70,5 +108,114 @@ export class ProductlistComponent implements OnInit, OnDestroy{
       }
     }
   }
+
+  applyAnimation(i:number){
+    this.isHover[i]=!this.isHover[i];
+
+ }
+
+ showVegetable():void{
+
+  this.filteredProducts=[];
+
+   for(let pr of this.products){
+     if(pr.category==='Vegetables'){
+       this.filteredProducts.push(pr);
+     }
+   }
+ }
+
+ showFruit():void{
+
+  this.filteredProducts=[];
+
+   for(let pr of this.products){
+     if(pr.category==='Fruits'){
+       this.filteredProducts.push(pr);
+     }
+   }
+
+ }
+
+ showDevice():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.category==='Electronic Device'){
+      this.filteredProducts.push(pr);
+    }
+  }
+ }
+
+ showJeans():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.category==='Jeans'){
+      this.filteredProducts.push(pr);
+    }
+  }
+
+ }
+
+ showGrocery():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.category==='Grocery'){
+      this.filteredProducts.push(pr);
+    }
+  }
+ }
+
+ show1():void{
+    this.filteredProducts=[];
+
+    for(let pr of this.products){
+      if(pr.price>=0 && pr.price<1000){
+        this.filteredProducts.push(pr);
+      }
+    }
+ }
+
+ show2():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.price>=1000 && pr.price<=5000){
+      this.filteredProducts.push(pr);
+    }
+  }
+}
+
+show3():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.price>5000 && pr.price<=10000){
+      this.filteredProducts.push(pr);
+    }
+  }
+}
+
+show4():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.price>10000 && pr.price<=50000){
+      this.filteredProducts.push(pr);
+    }
+  }
+}
+
+show5():void{
+  this.filteredProducts=[];
+
+  for(let pr of this.products){
+    if(pr.price>50000){
+      this.filteredProducts.push(pr);
+    }
+  }
+}
 
 }

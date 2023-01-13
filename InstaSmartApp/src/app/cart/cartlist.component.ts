@@ -33,6 +33,7 @@ export class CartlistComponent implements OnInit, OnDestroy{
 
   total:number=0;
 
+  qty:number[]=[];
 
   ngOnInit(): void {
     this.href=this.router.url;
@@ -44,11 +45,25 @@ export class CartlistComponent implements OnInit, OnDestroy{
 
     this.store.dispatch(CartActions.loadCartitems());
 
-    for(let p of this.products){
-      this.total+=(p.price*p.quantity);
+    for(let i=0; i<256; i++){
+      this.qty.push(1);
+    }
+
+    
+
+    for(let i=0;i<this.products.length; i++){
+      this.total+=(this.products[i].price*this.qty[i]);
     }
 
 
+  }
+
+  calculate():void{
+    this.total=0;
+    for(let i=0;i<this.products.length; i++){
+      
+      this.total+=(this.products[i].price*this.qty[i]);
+    }
   }
   ngOnDestroy(): void {
     //throw new Error('Method not implemented.');
@@ -63,10 +78,16 @@ export class CartlistComponent implements OnInit, OnDestroy{
     this.router.navigate(['/payment']);
   }
 
-  deleteProduct(product:IProduct):void{
+  deleteProduct(product:IProduct, i:number):void{
     if(product && product.id){
 
-      this.total=this.total-(product.price*product.quantity);
+      this.total=0;
+
+      this.qty[i]=0;
+
+      for(let i=0;i<this.products.length; i++){
+        this.total+=(this.products[i].price*this.qty[i]);
+      }
 
       this.store.dispatch(CartActions.deleteCartitem({productId:product.id}));
 

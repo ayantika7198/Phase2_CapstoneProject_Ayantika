@@ -14,3 +14,25 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.parentcontainer{
+    display: flex;
+    width: 100%;
+    
+}
+.container1{
+    width: 25%;
+    
+}
+
+.container2{
+    width: 75%;
+    
+}
+
+.tbl1{
+    width: 90%;
+    margin:auto;
+    margin-top: 10px;
+    background-color: skyblue;
+}

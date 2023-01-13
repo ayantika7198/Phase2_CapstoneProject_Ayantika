@@ -8,6 +8,7 @@ import { cartReducer } from '../state/carts/cart.reducer';
 import { CartEffects } from '../state/carts/cart.effects';
 import { AppModule } from '../app.module';
 import { CarticonComponent } from './carticon.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,7 @@ import { CarticonComponent } from './carticon.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialExampleModule,
     StoreModule.forFeature('carts', cartReducer),
     EffectsModule.forFeature([CartEffects])

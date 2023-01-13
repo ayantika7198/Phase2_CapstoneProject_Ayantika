@@ -50,5 +50,7 @@ export class PaymentComponent implements OnInit{
 
     this.router.navigate(['/products']);
 
+    window.location.reload();
+
   }
 }

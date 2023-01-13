@@ -6,7 +6,6 @@ import { IProduct } from "../products/product";
 @Injectable({
     providedIn: 'root'
 })
-
 export class CartitemService{
 
     public url="api/cartitems";

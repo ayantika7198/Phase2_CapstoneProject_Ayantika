@@ -1,0 +1,25 @@
+body{
+    height: 800px;
+}
+
+.parentcont{
+    display: flex;
+    width: 100%;
+}
+.cont1{
+    width: 60%;
+    text-align: center;
+    padding: 0px;
+    margin:0px;
+}
+.cont2{
+    width: 40%;
+    text-align: center;
+    padding: 0px;
+    margin-top:50px;
+    
+}
+
+.container{
+    width: 1500px;
+}

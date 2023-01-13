@@ -2,12 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription, tap } from 'rxjs';
+import { map, Observable, shareReplay, Subscription, tap } from 'rxjs';
 import { ProductService } from '../shared/product.service';
 import { getCurrentProduct } from '../state/products/product.selectors';
 import { State } from '../state/products/product.state';
 import { IProduct } from './product';
 import * as ProductActions from '../state/products/product.actions';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-productedit',
@@ -15,6 +16,7 @@ import * as ProductActions from '../state/products/product.actions';
   styleUrls: ['./productedit.component.css']
 })
 export class ProducteditComponent implements OnInit,OnDestroy{
+
 
   pageTitle:string='EDIT NEW PRODUCT';
   errorMessage='';
