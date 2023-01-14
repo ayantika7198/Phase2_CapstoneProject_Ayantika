@@ -6,6 +6,7 @@ import { ProductService } from '../shared/product.service';
 import { State } from '../state/carts/cart.state';
 import { IProduct } from './product';
 import * as CartActions from '../state/carts/cart.actions';
+import { CartitemService } from '../shared/cartitem.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
   sub!:Subscription;
   errorMessage:string='';
 
-  constructor(private activatedRoute:ActivatedRoute, private router:Router, private service:ProductService, private store:Store<State>){}
+  constructor(private activatedRoute:ActivatedRoute, private router:Router, 
+    private cartitemService:CartitemService, private service:ProductService, private store:Store<State>){}
 
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
 
     if(product){
 
-
+      //this.cartitemService.pay=true;
       this.store.dispatch(CartActions.createCartitem({product}));
     }
   }

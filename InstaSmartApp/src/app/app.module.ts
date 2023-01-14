@@ -22,6 +22,7 @@ import { CartModule } from './cart/cart.module';
 import { PaymentComponent } from './payment/payment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './users/login.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { LoginComponent } from './users/login.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument(),
     NgbModule,
     CartModule
   ],

@@ -16,6 +16,7 @@ export class CarticonComponent implements OnInit, OnDestroy{
   sub!:Subscription;
   prod!:IProduct;
   products:IProduct[]=[];
+  lent:number=0;
 
 
   constructor(private cartitemService: CartitemService, private store:Store<State>){}
@@ -26,6 +27,11 @@ export class CarticonComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.products$ = this.store.select(getCartitems);
     this.products$.subscribe(resp=>this.products=resp);
+
+    //onsole.log(this.cartitemService.pay);
+    //console.log(this.products.length);
+
+    
   }
   ngOnDestroy(): void {
     //throw new Error('Method not implemented.');

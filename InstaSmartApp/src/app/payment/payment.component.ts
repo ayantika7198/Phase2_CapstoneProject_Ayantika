@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartitemService } from '../shared/cartitem.service';
 
 @Component({
   selector: 'app-payment',
@@ -16,7 +17,7 @@ export class PaymentComponent implements OnInit{
   cont1:boolean=true;
   cont2:boolean=false;
 
-  constructor(private formBuilder: FormBuilder, private router:Router){}
+  constructor(private formBuilder: FormBuilder, private router:Router, private cartitemService:CartitemService){}
 
   ngOnInit(): void {
 
@@ -49,6 +50,8 @@ export class PaymentComponent implements OnInit{
   shop():void{
 
     this.router.navigate(['/products']);
+
+    //this.cartitemService.pay=false;
 
     window.location.reload();
 

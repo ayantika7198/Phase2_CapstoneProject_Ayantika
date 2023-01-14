@@ -10,6 +10,8 @@ export class CartitemService{
 
     public url="api/cartitems";
 
+    //pay:boolean=true;
+
     products:IProduct[]=[];
 
     private selectedProductSource= new BehaviorSubject<IProduct | null >(null);
