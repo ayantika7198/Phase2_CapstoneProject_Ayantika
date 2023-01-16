@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="card" style="padding: 40px;">
-        <img class="card-img-top" [src]="prd?.imageUrl" alt="Card image cap" width="400px" height="350px">
-        <div class="card-body">
+    <div class="card" style="padding: 40px; border:none;" id="imageName">
+        <img class="card-img-top" [src]="prd?.imageUrl" alt="Card image cap" width="400px" height="350px" style="border: 5px gray solid;">
+        <div class="card-body" style="text-align: center;">
           <h5 class="card-title">{{prd?.name}}</h5>
         </div>
       </div>
-      <div class="card" style="margin-left: 50px;">
+      <div class="card" style="margin-left: 50px; border:none;" id="details">
         <div class="card-body">
             <table class="table table-hover table-secondary table-striped table-bordered tbl">
                 <tbody>
@@ -48,10 +48,10 @@
 
 
               <div class="cartbutton">
-                  <button class="btn btn-success" style="width: 90%;" (click)="addToCart(prd)"><i class="material-icons" style="margin-right: 8px;">shopping_cart</i>ADD TO CART</button>
+                  <button class="btn btn-success" id="addCart" style="width: 90%;" (click)="addToCart(prd)"><i class="material-icons" style="margin-right: 8px;">shopping_cart</i>ADD TO CART</button>
               </div>
               <div class="back">
-                <button class="btn btn-danger" style="width: 70%;" (click)="back()">BACK TO PRODUCTS</button>
+                <button class="btn btn-danger" id="back" style="width: 90%;" (click)="back()">BACK TO PRODUCTS</button>
               </div>
 
         </div>

@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Store, StoreModule } from '@ngrx/store';
 import { MaterialExampleModule } from 'src/material.module';
 
 import { PaymentComponent } from './payment.component';
@@ -14,7 +15,8 @@ describe('PaymentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PaymentComponent ],
-      imports:[FormsModule, ReactiveFormsModule, HttpClientTestingModule , MaterialExampleModule, BrowserAnimationsModule]
+      imports:[FormsModule, ReactiveFormsModule, HttpClientTestingModule , MaterialExampleModule, BrowserAnimationsModule,
+      StoreModule.forRoot({})]
     })
     .compileComponents();
 
@@ -44,9 +46,9 @@ describe('PaymentComponent', () => {
   });
 
   it('should check the formControlName of Card Number',()=>{
-    const num=fixture.debugElement.query(By.css('.card'));
-    const num2=num.nativeElement.getAttribute('formControlName');
-    expect(num2).toEqual('card');
+    const card=fixture.debugElement.query(By.css('.card'));
+    const card2=card.nativeElement.getAttribute('formControlName');
+    expect(card2).toEqual('card');
   });
 
   it('should check the formControlName of Card Holder Name',()=>{
@@ -72,15 +74,15 @@ describe('PaymentComponent', () => {
 
   it('should check the input type of card number',()=>{
 
-    const num3=fixture.debugElement.query(By.css('.card'));
+    const card3=fixture.debugElement.query(By.css('.card'));
 
-    const num:any=component.addPayment.get("card");
-    const num2='789067894563';
-    num.setValue(num2);
+    const card:any=component.addPayment.get("card");
+    const card2='789067894563';
+    card.setValue(card2);
 
     fixture.detectChanges();
 
-    expect(num3.nativeElement.value).toEqual(num2);
+    expect(card3.nativeElement.value).toEqual(card2);
   });
 
   it('should check the input type of card holder name',()=>{
@@ -125,7 +127,7 @@ describe('PaymentComponent', () => {
   it('should check the save button when invalid',()=>{
 
     const num:any=component.addPayment.get("card");
-    const num2='789067894563';
+    const num2='7890';
     num.setValue(num2);
 
     const name:any=component.addPayment.get("name");

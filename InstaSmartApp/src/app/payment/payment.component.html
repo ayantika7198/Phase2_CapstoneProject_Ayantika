@@ -8,10 +8,10 @@
     </div>
     <div class="card-body">
         <div>
-      <button class="btn btn-success btn-lg" (click)="apply()">Apply Coupons</button>
+      <button class="btn btn-success btn-lg" (click)="apply()" style="width: 70%;">Apply Coupons</button>
       </div>
       <div>
-      <button class="btn btn-success btn-lg">Pay With NetBanking</button>
+      <button class="btn btn-success btn-lg" style="width:70%">Pay With NetBanking</button>
       </div>
     </div>
 
@@ -27,11 +27,11 @@
                     <div class="example-container">
                         <mat-form-field hintLabel="Max 12 numbers" appearance="fill" class="full-width-field">
                             <mat-label>Enter Credit Card Number</mat-label>
-                            <input matInput #card class="card" maxlength="12" pattern="[0-9]{12}" placeholder="Ex. Enter Your Card Number" name="card" formControlName="card"/>
+                            <input matInput #card class="card" maxlength="12" placeholder="Ex. Enter Your Card Number" name="card" formControlName="card"/>
                             <mat-hint align="end">{{card.value.length}}/12</mat-hint>
                             <mat-error *ngIf="myError('card', 'required')">Credit Card Number is required</mat-error>
                             <mat-error *ngIf="myError('card','minlength')">Length of Card number is 12</mat-error>
-                            <mat-error *ngIf="myError('card','pattern')">Please Provide Your Correct Card Number</mat-error>
+                            
                           </mat-form-field>
                     </div>
 
@@ -42,7 +42,7 @@
                             <mat-hint align="end">{{name.value.length}}/30</mat-hint>
                             <mat-error *ngIf="myError('name', 'required')">Credit Card Holder Name is required</mat-error>
                             <mat-error *ngIf="myError('name','minlength')">Minimum Length of Card Holder Name is 5</mat-error>
-                            <mat-error *ngIf="myError('name','pattern')">Please Provide Card Holder Name Correctly</mat-error>
+                            
                           </mat-form-field>
                     </div>
                     <div class="example-container">

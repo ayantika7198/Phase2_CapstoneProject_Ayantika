@@ -20,6 +20,7 @@
 .header_menu_signin{
     display: flex;
     flex-direction: column;
+    width: 120px;
 }
 .header_menu_top_item{
     font-size: 10px;
@@ -78,5 +79,5 @@
 }
 
 .bigspace{
-    width: 580px;
+    width: 530px;
 }

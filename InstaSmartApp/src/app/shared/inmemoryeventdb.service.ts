@@ -194,6 +194,11 @@ export class InMemoryEventDbService implements InMemoryDbService{
                 "username": "ayantika.user",
                 "password": "password",
                 "isAdmin": false
+            },
+            {
+                "username": "ayantika",
+                "password": "password",
+                "isAdmin" : false
             }
               
         ]

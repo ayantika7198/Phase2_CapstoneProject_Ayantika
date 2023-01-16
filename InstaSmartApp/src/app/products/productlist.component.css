@@ -4,9 +4,9 @@
     margin:20px;
     padding: 10px;
     background-color: #e3f2fd;
-    border: 5px #0020C2 solid;
+    border: 10px grey solid;
 
-    box-shadow: 5px 10px blue;
+    
 }
 .cont{
     width: 90%;

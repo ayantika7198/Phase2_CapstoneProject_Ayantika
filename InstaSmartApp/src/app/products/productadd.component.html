@@ -11,7 +11,7 @@
         <div class="example-container">
             <mat-form-field class="example-full-width">
               <mat-label>PRODUCT ID</mat-label>
-              <input matInput #id maxlength="5" placeholder="Ex. P001" name="id" formControlName="id">
+              <input matInput #id class="id" maxlength="5" placeholder="Ex. P001" name="id" formControlName="id">
               <mat-hint align="start"><strong>Enter The Product Id</strong> </mat-hint>
               <mat-hint align="end">{{id.value.length}} / 5</mat-hint>
               <mat-error *ngIf="myError('id', 'required')">Product ID is required</mat-error>
@@ -20,7 +20,7 @@
 <div class="example-container">
             <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT NAME</mat-label>
-                <input matInput #name placeholder="Ex. Product Name" name="name" formControlName="name">
+                <input matInput #name class="name" placeholder="Ex. Product Name" name="name" formControlName="name">
                 <mat-hint align="start"><strong>Enter The Product Name</strong> </mat-hint>
                 <mat-hint align="end">{{name.value.length}} / 25</mat-hint>
                 <mat-error *ngIf="myError('name', 'required')">Product Name is required</mat-error>
@@ -31,7 +31,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT IMAGE URL</mat-label>
-                <input matInput #imageUrl maxlength="50" placeholder="Ex. ../url" name="imageUrl" formControlName="imageUrl">
+                <input matInput #imageUrl class="imageUrl" maxlength="50" placeholder="Ex. ../url" name="imageUrl" formControlName="imageUrl">
                 <mat-hint align="start"><strong>Enter The Product Image Url</strong> </mat-hint>
                 <mat-hint align="end">{{imageUrl.value.length}} / 50</mat-hint>
                 <mat-error *ngIf="myError('imageUrl', 'required')">Product imageUrl is required</mat-error>
@@ -40,7 +40,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT DESCRIPTION</mat-label>
-                <input matInput #description maxlength="200" placeholder="Ex. This is an apple" name="description" formControlName="description">
+                <input matInput #description class="description" maxlength="200" placeholder="Ex. This is an apple" name="description" formControlName="description">
                 <mat-hint align="start"><strong>Enter Something About the product</strong> </mat-hint>
                 <mat-hint align="end">{{description.value.length}} / 200</mat-hint>
                 <mat-error *ngIf="myError('description', 'required')">Product Description is required</mat-error>
@@ -49,7 +49,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT PRICE</mat-label>
-                <input matInput #price placeholder="Ex. 1000" name="price" formControlName="price">
+                <input matInput #price class="price" placeholder="Ex. 1000" name="price" formControlName="price">
                 <mat-hint align="start"><strong>Enter the product price</strong> </mat-hint>
                 <mat-error *ngIf="myError('price', 'required')">Product Price is required</mat-error>
                 <mat-error *ngIf="myError('price', 'min')">Minimum Product Price can be 0</mat-error>
@@ -60,7 +60,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT CATEGORY</mat-label>
-                <input matInput #category maxlength="25" placeholder="Ex. Grocery" name="category" formControlName="category">
+                <input matInput #category class="category" maxlength="25" placeholder="Ex. Grocery" name="category" formControlName="category">
                 <mat-hint align="start"><strong>Enter The Product Category</strong> </mat-hint>
                 <mat-hint align="end">{{category.value.length}} / 25</mat-hint>
                 <mat-error *ngIf="myError('category', 'required')">Product Category is required</mat-error>
@@ -69,7 +69,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT SELLER NAME</mat-label>
-                <input matInput #sellerName maxlength="25" placeholder="Ex. ABC Seller" name="sellerName" formControlName="sellerName">
+                <input matInput #sellerName class="sellerName" maxlength="25" placeholder="Ex. ABC Seller" name="sellerName" formControlName="sellerName">
                 <mat-hint align="start"><strong>Enter The Product Seller Name</strong> </mat-hint>
                 <mat-hint align="end">{{sellerName.value.length}} / 25</mat-hint>
                 <mat-error *ngIf="myError('sellerName', 'required')">Product Seller Name is required</mat-error>
@@ -80,7 +80,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT SELLER LOCATION</mat-label>
-                <input matInput #sellerLocation maxlength="25" placeholder="Ex. Kolkata" name="sellerLocation" formControlName="sellerLocation">
+                <input matInput #sellerLocation class="sellerLocation" maxlength="25" placeholder="Ex. Kolkata" name="sellerLocation" formControlName="sellerLocation">
                 <mat-hint align="start"><strong>Enter The Product Seller Location</strong> </mat-hint>
                 <mat-hint align="end">{{sellerLocation.value.length}} / 25</mat-hint>
                 <mat-error *ngIf="myError('sellerLocation', 'required')">Product Seller Location is required</mat-error>
@@ -89,7 +89,7 @@
 <div class="example-container">
               <mat-form-field class="example-full-width">
                 <mat-label>PRODUCT QUANTITY</mat-label>
-                <input matInput #quantity placeholder="0" name="quantity" formControlName="quantity">
+                <input matInput #quantity class="quantity" placeholder="0" name="quantity" formControlName="quantity">
                 <mat-hint align="start"><strong>Enter the product quantity</strong> </mat-hint>
                 <mat-error *ngIf="myError('quantity', 'required')">Product Quantity is required</mat-error>
                 

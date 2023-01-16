@@ -27,8 +27,8 @@
     <img src="../../assets/images/carticon.png" width="250px" height="200px"/>
     <p class="total">Total Price: {{total}}</p>
     <div class="innerdiv">
-    <button class="btn btn-primary btn-lg" [disabled]="!products.length" (click)="goPayment()">CHECKOUT</button>
-    <button class="btn btn-warning btn-lg" (click)="goBack()">CONTINUE SHOPPING</button>
+    <button class="btn btn-primary btn-lg" id="checkout" [disabled]="!products.length" (click)="goPayment()">CHECKOUT</button>
+    <button class="btn btn-warning btn-lg" id="back" (click)="goBack()">CONTINUE SHOPPING</button>
     </div>
   </div>
 

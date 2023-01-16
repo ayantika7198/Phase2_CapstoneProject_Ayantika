@@ -9,11 +9,14 @@ import { AuthService } from '../users/authservice';
 })
 export class HeaderComponent {
 
+
+
   constructor(private router:Router, private authService:AuthService){}
 
   get isLoggedIn():boolean{
     return this.authService.isLoggedIn();
   }
+
 
   get username():string{
     if(this.authService.currentUser)

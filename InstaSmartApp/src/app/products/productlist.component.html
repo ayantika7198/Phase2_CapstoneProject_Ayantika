@@ -1,7 +1,7 @@
 <div class="parentcontainer">
   <div class="container1">
 
-    <table class="table table-hover table-bordered tbl1">
+    <table class="table table-hover table-bordered tbl1" id="filterCategory">
       <thead style="height: 30px;">
         <tr >
           <th scope="col">Filter By Category</th>
@@ -30,7 +30,7 @@
       </tbody>
     </table>
 
-    <table class="table table-hover table-bordered tbl1">
+    <table class="table table-hover table-bordered tbl1" id="filterPrice">
       <thead style="height: 30px;">
         <tr >
           <th scope="col">Filter By Price</th>
@@ -63,8 +63,8 @@
 
 
 <div class="container2">
-<div class="card text-center cont2">
-  <div class="card-header">{{pageTitle}}</div>
+<div class="card text-center cont2" style="border: none;">
+  <div class="card-header" id="heading">{{pageTitle}}</div>
 <div class="card-body" class="cont">
 
         <mat-card class="example-card" *ngFor="let pr of filteredProducts; let i=index" class="innercont"> 
@@ -82,8 +82,8 @@
             </mat-card-content>
 
             <mat-card-actions *ngIf="showIcon">
-              <button mat-raised-button color="primary" (click)="productSelected(pr)" style="margin:8px;"><span class="material-icons"> edit</span>EDIT</button>
-              <button mat-raised-button color="warn" (click)="deleteProduct(pr)" style="margin: 8px;"><i class="material-icons">delete</i>DELETE</button>
+              <button mat-raised-button color="primary" id="edit" (click)="productSelected(pr)" style="margin:8px;"><span class="material-icons"> edit</span>EDIT</button>
+              <button mat-raised-button color="warn" id="delete" (click)="deleteProduct(pr)" style="margin: 8px;"><i class="material-icons">delete</i>DELETE</button>
             </mat-card-actions>
             <mat-card-actions>
               <button class="btn btn-success" [routerLink]="['/products',pr.id]">View Details</button>
@@ -94,7 +94,7 @@
         </div>
       </div>
 <div style="text-align: center; margin-top: 10px;" *ngIf="showIcon">
-<button mat-raised-button color="primary" (click)="newProduct()">ADD NEW PRODUCT</button>
+<button mat-raised-button color="primary" id="addnew" (click)="newProduct()">ADD NEW PRODUCT</button>
 </div>
 
 </div>

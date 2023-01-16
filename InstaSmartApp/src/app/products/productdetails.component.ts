@@ -56,8 +56,7 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
   addToCart(product:IProduct | null | undefined):void{
 
     if(product){
-
-      //this.cartitemService.pay=true;
+      
       this.store.dispatch(CartActions.createCartitem({product}));
     }
   }
