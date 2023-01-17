@@ -1,3 +1,7 @@
+
+<!--It will show the navbar with login and logout accordingly.
+  If the user is not logged in, they can see the login button.
+  If the user is logged in, they can see the welcome message and logout button.-->
 <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#">All</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +33,7 @@
           <button class="btn btn-success" routerLink="/login"><mat-icon>login</mat-icon></button>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="logOut">
         <a class="nav-link" *ngIf="isLoggedIn" id="logout">
           <button class="btn btn-danger" (click)="logout()" ><mat-icon>logout</mat-icon></button>
         </a>

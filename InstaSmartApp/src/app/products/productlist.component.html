@@ -1,4 +1,5 @@
 <div class="parentcontainer">
+  <!--This container is for filtering the products by category and price-->
   <div class="container1">
 
     <table class="table table-hover table-bordered tbl1" id="filterCategory">
@@ -61,7 +62,7 @@
   </div>
 
 
-
+<!--This Container will show all the Products-->
 <div class="container2">
 <div class="card text-center cont2" style="border: none;">
   <div class="card-header" id="heading">{{pageTitle}}</div>
@@ -82,10 +83,13 @@
             </mat-card-content>
 
             <mat-card-actions *ngIf="showIcon">
+              <!--By clicking this button we can edit the product-->
               <button mat-raised-button color="primary" id="edit" (click)="productSelected(pr)" style="margin:8px;"><span class="material-icons"> edit</span>EDIT</button>
+             <!--By clicking this button we can delete the product-->
               <button mat-raised-button color="warn" id="delete" (click)="deleteProduct(pr)" style="margin: 8px;"><i class="material-icons">delete</i>DELETE</button>
             </mat-card-actions>
             <mat-card-actions>
+              <!--By Clicking this button we can view details of the product-->
               <button class="btn btn-success" [routerLink]="['/products',pr.id]">View Details</button>
             </mat-card-actions>
           </mat-card>
@@ -94,6 +98,7 @@
         </div>
       </div>
 <div style="text-align: center; margin-top: 10px;" *ngIf="showIcon">
+  <!--By clicking this button we can add a new product-->
 <button mat-raised-button color="primary" id="addnew" (click)="newProduct()">ADD NEW PRODUCT</button>
 </div>
 

@@ -4,11 +4,14 @@ import { mergeMap, map, catchError, of, concatMap } from "rxjs";
 import { CartitemService } from "src/app/shared/cartitem.service";
 import * as CartActions from './cart.actions';
 
+//Ngrx effects
+
 @Injectable()
 export class CartEffects{
 
     constructor(private actions$:Actions, private cartitemService:CartitemService){}
 
+    //Effects on loading the cartitems
     loadCartitems$ = createEffect(() => {
         return this.actions$
           .pipe(
@@ -22,6 +25,7 @@ export class CartEffects{
           );
       });
 
+      //Effects on creating an new cartitem
       createCartitem$ = createEffect(() => {
         return this.actions$
           .pipe(
@@ -36,6 +40,7 @@ export class CartEffects{
           );
       });
 
+      //Effects on deleting a cart item
       deleteCartitem$ = createEffect(() => {
         return this.actions$
           .pipe(

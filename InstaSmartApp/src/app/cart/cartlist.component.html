@@ -1,5 +1,7 @@
 <div class="container">
   <div class="cont1">
+
+    <!--It will show the CartItems in the table upon adding and deleting accordingly-->
 <table class="table table-dark">
     <thead>
       <tr>
@@ -25,9 +27,13 @@
   </div>
   <div class="cont2">
     <img src="../../assets/images/carticon.png" width="250px" height="200px"/>
+    <!--Here the Total Price will come from the cart items by calculating the price.-->
     <p class="total">Total Price: {{total}}</p>
     <div class="innerdiv">
+      <!--From here we can checkout and it will be rendered to the payment page-->
     <button class="btn btn-primary btn-lg" id="checkout" [disabled]="!products.length" (click)="goPayment()">CHECKOUT</button>
+    
+    <!--Upon clicking on the continue shopping, we can back to our products and continue our shopping-->
     <button class="btn btn-warning btn-lg" id="back" (click)="goBack()">CONTINUE SHOPPING</button>
     </div>
   </div>

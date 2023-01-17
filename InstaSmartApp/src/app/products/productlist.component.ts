@@ -54,6 +54,7 @@ export class ProductlistComponent implements OnInit, OnDestroy{
 
   showIcon:boolean=false;
 
+  //injecting the product service, router, ngrx store for products and auth service
   constructor(private productService:ProductService, private router:Router, private store:Store<State>,
     private authService:AuthService){}
 
@@ -73,10 +74,12 @@ export class ProductlistComponent implements OnInit, OnDestroy{
 
     this.errorMessage$=this.store.select(getError);
 
+    //it will dispatch the product action for loading all products
     this.store.dispatch(ProductActions.loadProducts());
 
     this.selectedProduct$=this.store.select(getCurrentProduct);
 
+    //if the user is only admin then the edit, delete, add icon will be there
     if(this.authService.currentUser?.isAdmin){
       this.showIcon=true;
     }
@@ -89,16 +92,19 @@ export class ProductlistComponent implements OnInit, OnDestroy{
     //throw new Error('Method not implemented.');
   }
 
+  //For creating a new product
   newProduct():void{
     this.store.dispatch(ProductActions.initializeCurrentProduct());
     this.router.navigate([this.href,'addProduct']);
   }
 
+  //for editing a product
   productSelected(product: IProduct):void{
     this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
     this.router.navigate([this.href,'editProduct']);
   }
 
+  //for deleting a product
   deleteProduct(product: IProduct):void{
     if(product && product.id){
       if(confirm(`Are You Sure to Delete ${product.id} ${product.name} Details`)){
@@ -108,11 +114,13 @@ export class ProductlistComponent implements OnInit, OnDestroy{
       }
     }
   }
-
+//for applying animation in image
   applyAnimation(i:number){
     this.isHover[i]=!this.isHover[i];
 
  }
+
+ /*Filtering Products By Category*/
 
  showVegetable():void{
 
@@ -168,6 +176,7 @@ export class ProductlistComponent implements OnInit, OnDestroy{
   }
  }
 
+ /*Filtering Products By Price*/
  show1():void{
     this.filteredProducts=[];
 

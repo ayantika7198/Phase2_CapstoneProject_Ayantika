@@ -6,10 +6,13 @@ import { MaterialExampleModule } from 'src/material.module';
 
 import { ContactusComponent } from './contactus.component';
 
+
+//Describing the ContactUs Component TestCases
 describe('ContactusComponent', () => {
   let component: ContactusComponent;
   let fixture: ComponentFixture<ContactusComponent>;
 
+  //Declaring the component and importing the necessary modules
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ContactusComponent ],
@@ -17,35 +20,43 @@ describe('ContactusComponent', () => {
     })
     .compileComponents();
 
+    //Creating The TestBed for contactus component
     fixture = TestBed.createComponent(ContactusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
+  //It tests that the component is created or not
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  //It tests that the firstname field is created or not
   it('should have the first name',()=>{
     expect(fixture.debugElement.query(By.css('.firstname'))).toBeTruthy();
   });
 
+  //It tests that the lastname field is created or not
   it('should have the last name',()=>{
     expect(fixture.debugElement.query(By.css('.lastname'))).toBeTruthy();
   });
 
+  //It tests that the email field is created or not
   it('should have the email',()=>{
     expect(fixture.debugElement.query(By.css('.email'))).toBeTruthy();
   });
 
+  //It tests that the store name field is created or not
   it('should have the Store name',()=>{
     expect(fixture.debugElement.query(By.css('.store'))).toBeTruthy();
   });
 
+  //It tests that the comments field is created or not
   it('should have the comments field',()=>{
     expect(fixture.debugElement.query(By.css('.comment'))).toBeTruthy();
   });
 
+  //It tests the form control name of firstname
   it('should check the form control name of firstname',()=>{
     const firstname=fixture.debugElement.query(By.css('.firstname'));
     const firstname2=firstname.nativeElement.getAttribute('formControlName');
@@ -53,6 +64,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the form control name of lastname
   it('should check the form control name of lastname',()=>{
     const lastname=fixture.debugElement.query(By.css('.lastname'));
     const lastname2=lastname.nativeElement.getAttribute('formControlName');
@@ -60,6 +72,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the form control name of email
   it('should check the form control name of email',()=>{
     const email=fixture.debugElement.query(By.css('.email'));
     const email2=email.nativeElement.getAttribute('formControlName');
@@ -67,6 +80,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the form control name of store name
   it('should check the form control name of Store name',()=>{
     const store=fixture.debugElement.query(By.css('.store'));
     const store2=store.nativeElement.getAttribute('formControlName');
@@ -74,6 +88,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the form control name of comments
   it('should check the form control name of Comments field',()=>{
     const comment=fixture.debugElement.query(By.css('.comment'));
     const comment2=comment.nativeElement.getAttribute('formControlName');
@@ -81,6 +96,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the input type of firstname
   it('should check the input type of firstname',()=>{
 
     const firstname3=fixture.debugElement.query(By.css('.firstname'));
@@ -95,6 +111,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the input type of lastname
   it('should check the input type of lastname',()=>{
 
     const lastname3=fixture.debugElement.query(By.css('.lastname'));
@@ -109,6 +126,7 @@ describe('ContactusComponent', () => {
 
   });
 
+  //It tests the input type of email
   it('should check the input type of email',()=>{
 
     const email3=fixture.debugElement.query(By.css('.email'));
@@ -123,21 +141,28 @@ describe('ContactusComponent', () => {
 
   });
 
-  /*it('should check input type of Store Name and bind the configured value',()=>{
+  //It tests the input type of store name
+  it('should check input type of Store Name and bind the configured value',()=>{
 
-    const store3=fixture.debugElement.query(By.css('.store')).nativeElement;
+    const store1=fixture.debugElement.query(By.css('.store')).nativeElement;
 
-    store3.selectedIndex=0;
+    let select=component.addContact.controls['store'];
+
+    select.setValue('ABC Store');
+
+    expect(select.errors).toBeNull();
+
+    /*store1.value=store1.options[1].value;
 
     fixture.detectChanges();
 
-    fixture.whenStable().then(()=>{
-      let text=store3.options[store3.selectedIndex].label;
-      expect(text).toBe('ABC Store');
+    let val=store1.options[store1.selectedIndex].label;
+    expect(val).toEqual('ABC Store');*/
+    
     });
 
-  });*/
 
+  //It tests the input type of comments
   it('should check the input type of Comments Field',()=>{
 
     const comment3=fixture.debugElement.query(By.css('.comment'));

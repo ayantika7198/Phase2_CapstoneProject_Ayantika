@@ -5,10 +5,12 @@ import { MaterialExampleModule } from 'src/material.module';
 
 import { HeaderComponent } from './header.component';
 
+//For describing the header component testcases
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
+  //For declaring the component and importing the necessary modules
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
@@ -16,15 +18,18 @@ describe('HeaderComponent', () => {
     })
     .compileComponents();
 
+    //Creating the testbed for header component
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
+  //It tests that the component is created or not
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  //It tests that there is home in navbar or not
   it('should have the Home',()=>{
     expect(fixture.debugElement.query(By.css('#home'))).toBeTruthy();
 
@@ -33,6 +38,7 @@ describe('HeaderComponent', () => {
 
   });
 
+  //It tests that there is products in navbar or not
   it('should have the Products',()=>{
 
     expect(fixture.debugElement.query(By.css('#products'))).toBeTruthy();
@@ -42,6 +48,7 @@ describe('HeaderComponent', () => {
 
   });
 
+  //It tests that there is aboutus in navbar or not
   it('should have the AboutUs',()=>{
 
     expect(fixture.debugElement.query(By.css('#aboutus'))).toBeTruthy();
@@ -51,6 +58,7 @@ describe('HeaderComponent', () => {
 
   });
 
+  //It tests that there is contactus in navbar or not
   it('should have the Contact Us',()=>{
 
     expect(fixture.debugElement.query(By.css('#contactus'))).toBeTruthy();
@@ -60,19 +68,21 @@ describe('HeaderComponent', () => {
 
   });
 
+  //It tests that there is login button in navbar or not
   it('should have the login button',()=>{
 
     expect(fixture.debugElement.query(By.css('#login'))).toBeTruthy();
 
   });
 
- /* it('should have the logout button',()=>{
+ it('should have the logout button when logged in',()=>{
 
-    component.isLoggedIn=true;
+    component.isLogIn=true;
 
+    fixture.detectChanges();
 
-    expect(fixture.debugElement.query(By.css('#logout'))).toBeTruthy();
+    expect(fixture.debugElement.query(By.css('#logOut'))).toBeTruthy();
 
-  });*/
+  });
   
 });

@@ -16,16 +16,19 @@ export class LoginComponent implements OnInit{
 
   @ViewChild('loginForm',{})loginForm!:NgForm;
 
+  //Injecting the AuthService and router
   constructor(private authService:AuthService, private router:Router){}
 
   ngOnInit(): void {
     
   }
 
+  //It will navigate to the home page
   cancel():void{
     this.router.navigate(['/']);
   }
 
+  //It will check the username and call the authservice login accordingly
   onSubmit(loginForm:NgForm){
 
     if(loginForm && loginForm.valid){

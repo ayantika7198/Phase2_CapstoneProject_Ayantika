@@ -8,10 +8,12 @@ import { MaterialExampleModule } from 'src/material.module';
 
 import { ProductaddComponent } from './productadd.component';
 
+//Describing the Product Add Component TestCases
 describe('ProductaddComponent', () => {
   let component: ProductaddComponent;
   let fixture: ComponentFixture<ProductaddComponent>;
 
+  //Declaring the component and importing the required modules
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductaddComponent ],
@@ -20,51 +22,63 @@ describe('ProductaddComponent', () => {
     })
     .compileComponents();
 
+    //Creating TestBed for Product Add Component
     fixture = TestBed.createComponent(ProductaddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
+  //The Component Should be created
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  //The Component Should have the product id
   it('should have the product id',()=>{
     expect(fixture.debugElement.query(By.css('.id'))).toBeTruthy();
   });
 
+  //The Component Should have the product name
   it('should have the product name',()=>{
     expect(fixture.debugElement.query(By.css('.name'))).toBeTruthy();
   });
 
+  //The component should have the product image url
   it('should have the product imageUrl',()=>{
     expect(fixture.debugElement.query(By.css('.imageUrl'))).toBeTruthy();
   });
 
+  //The component should have the product description
   it('should have the product description',()=>{
     expect(fixture.debugElement.query(By.css('.description'))).toBeTruthy();
   });
 
+  //The component should have the product price
   it('should have the product price',()=>{
     expect(fixture.debugElement.query(By.css('.price'))).toBeTruthy();
   });
 
+  //The component should have the product category
   it('should have the product category',()=>{
     expect(fixture.debugElement.query(By.css('.category'))).toBeTruthy();
   });
 
+  //The component should have the product seller name
   it('should have the product seller name',()=>{
     expect(fixture.debugElement.query(By.css('.sellerName'))).toBeTruthy();
   });
 
+  //The component should have the product seller location
   it('should have the product seller location',()=>{
     expect(fixture.debugElement.query(By.css('.sellerLocation'))).toBeTruthy();
   });
 
+  //The component should have the product quantity
   it('should have the product quantity',()=>{
     expect(fixture.debugElement.query(By.css('.quantity'))).toBeTruthy();
   });
 
+  //It tests the form control name of product id
   it('should check the form control name of product id',()=>{
     const id=fixture.debugElement.query(By.css('.id'));
     const id2=id.nativeElement.getAttribute('formControlName');
@@ -72,6 +86,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product name
   it('should check the form control name of product name',()=>{
     const name=fixture.debugElement.query(By.css('.name'));
     const name2=name.nativeElement.getAttribute('formControlName');
@@ -79,6 +94,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product image url
   it('should check the form control name of product imageUrl',()=>{
     const imageUrl=fixture.debugElement.query(By.css('.imageUrl'));
     const imageUrl2=imageUrl.nativeElement.getAttribute('formControlName');
@@ -86,6 +102,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product description
   it('should check the form control name of product description',()=>{
     const description=fixture.debugElement.query(By.css('.description'));
     const description2=description.nativeElement.getAttribute('formControlName');
@@ -93,6 +110,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product price
   it('should check the form control name of product price',()=>{
     const price=fixture.debugElement.query(By.css('.price'));
     const price2=price.nativeElement.getAttribute('formControlName');
@@ -100,6 +118,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product category
   it('should check the form control name of product category',()=>{
     const category=fixture.debugElement.query(By.css('.category'));
     const category2=category.nativeElement.getAttribute('formControlName');
@@ -107,6 +126,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product seller name
   it('should check the form control name of product seller name',()=>{
     const sellerName=fixture.debugElement.query(By.css('.sellerName'));
     const sellerName2=sellerName.nativeElement.getAttribute('formControlName');
@@ -114,6 +134,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the form control name of product seller location
   it('should check the form control name of product seller location',()=>{
 
     const sellerLocation=fixture.debugElement.query(By.css('.sellerLocation'));
@@ -121,6 +142,7 @@ describe('ProductaddComponent', () => {
     expect(sellerLocation2).toEqual('sellerLocation');
   });
 
+  //It tests the form control name of product quantity
   it('should check the form control name of product quantity',()=>{
     const quantity=fixture.debugElement.query(By.css('.quantity'));
     const quantity2=quantity.nativeElement.getAttribute('formControlName');
@@ -128,6 +150,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product id
   it('should check the input type of product id',()=>{
 
     const id3=fixture.debugElement.query(By.css('.id'));
@@ -142,6 +165,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product name
   it('should check the input type of product name',()=>{
 
     const name3=fixture.debugElement.query(By.css('.name'));
@@ -156,6 +180,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product image
   it('should check the input type of product image url',()=>{
 
     const image3=fixture.debugElement.query(By.css('.imageUrl'));
@@ -170,6 +195,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product description
   it('should check the input type of product description',()=>{
 
     const description3=fixture.debugElement.query(By.css('.description'));
@@ -184,6 +210,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product price
   it('should check the input type of product price',()=>{
 
     const price3=fixture.debugElement.query(By.css('.price'));
@@ -198,6 +225,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product category
   it('should check the input type of product category',()=>{
 
     const category3=fixture.debugElement.query(By.css('.category'));
@@ -212,6 +240,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product seller name
   it('should check the input type of product seller name',()=>{
 
     const sellerName3=fixture.debugElement.query(By.css('.sellerName'));
@@ -226,6 +255,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product seller location
   it('should check the input type of product seller location',()=>{
 
     const sellerLocation3=fixture.debugElement.query(By.css('.sellerLocation'));
@@ -240,6 +270,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It tests the input type of product quantity
   it('should check the input type of product quantity',()=>{
     const quantity3=fixture.debugElement.query(By.css('.quantity'));
 
@@ -253,6 +284,7 @@ describe('ProductaddComponent', () => {
 
   });
 
+  //It should check the save button as disabled when invalid data is given in form
   it('should check the button disabled when invalid',()=>{
 
     const id:any=component.addProduct.get("id");

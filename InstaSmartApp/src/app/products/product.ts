@@ -1,4 +1,5 @@
 
+//Product Interface
 
 export interface IProduct{
     id:string,

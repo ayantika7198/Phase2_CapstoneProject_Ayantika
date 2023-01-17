@@ -21,6 +21,8 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
   sub!:Subscription;
   errorMessage:string='';
 
+  //Injecting activatedroute, router,
+  //cartitem service, product service, ngrx store for cartitems
   constructor(private activatedRoute:ActivatedRoute, private router:Router, 
     private cartitemService:CartitemService, private service:ProductService, private store:Store<State>){}
 
@@ -33,6 +35,7 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
         this.id=idd;
       }
 
+      //It will fetch the provide by giving it's id
       this.service.getProductById(this.id).subscribe(
         (resp)=>{
           this.prd=resp;
@@ -46,6 +49,7 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
     })
   }
 
+  //It will navigate to the products page
   back():void{
     this.router.navigate(['products']);
   }
@@ -53,11 +57,17 @@ export class ProductdetailsComponent implements OnInit, OnDestroy{
     this.sub.unsubscribe();
   }
 
+  count:number=0;
+
+  //It is called at the time of adding into cart
   addToCart(product:IProduct | null | undefined):void{
 
-    if(product){
+    if(product && this.count<1){
       
+      //It will dispatch the cart action to create a cart item
       this.store.dispatch(CartActions.createCartitem({product}));
+
+      this.count++;
     }
   }
 

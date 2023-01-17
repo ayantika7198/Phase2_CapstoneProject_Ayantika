@@ -25,6 +25,7 @@ export class PaymentComponent implements OnInit{
   cont1:boolean=true;
   cont2:boolean=false;
 
+  //For injecting the formbuilder, router, cartitem service and ngrx store for cartitems
   constructor(private formBuilder: FormBuilder, private router:Router, private cartitemService:CartitemService,
     private store:Store<State>){}
 
@@ -33,7 +34,7 @@ export class PaymentComponent implements OnInit{
   ngOnInit(): void {
 
 
-
+    //It will create the add payment form group with proper validations on each form control
     this.addPayment=this.formBuilder.group({
       card:['',[Validators.required, Validators.minLength(12)]],
       name:['',[Validators.required, Validators.minLength(5)]],
@@ -43,28 +44,36 @@ export class PaymentComponent implements OnInit{
    
   }
 
+  //The function will be invoked if we want to show any error message on Violating the validations 
+  //of each form control
   public myError = (controlName: string, errorName: string) =>{
     return this.addPayment.controls[controlName].hasError(errorName);
     }
 
 
-
+    //This function will be called upon clicking on apply coupons
   apply():void{
     alert("Coupon Successfully Applied");
   }
 
+  //This function will be called after payment
   afterPay():void{
     this.cont1=false;
     this.cont2=true;
 
+    //This will fetch all cart products from store
     this.products$ = this.store.select(getCartitems);
     this.products$.subscribe(resp=>this.products=resp);
 
+    //This will delete all products present in cart and make the cart empty
     for(let prd of this.products){
       this.store.dispatch(CartActions.deleteCartitem({productId:prd.id}));
     }
   }
 
+
+  //This will be invoked on clicking on continue shopping products
+  //which fetch the user to the products
   shop():void{
 
     

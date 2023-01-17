@@ -10,6 +10,7 @@ import { User } from "../users/user";
 export class InMemoryEventDbService implements InMemoryDbService{
 
     createDb(){
+        //in-memory-web-api for products
         const products:IProduct[]=[
 
             {
@@ -180,10 +181,12 @@ export class InMemoryEventDbService implements InMemoryDbService{
 
         ];
 
+        //in-memory-web-api for cartitems
         const cartitems:IProduct[]=[
 
         ];
 
+        //in-memory-web-api for users
         const users:User[]=[
             {
                 "username": "ayantika.admin",

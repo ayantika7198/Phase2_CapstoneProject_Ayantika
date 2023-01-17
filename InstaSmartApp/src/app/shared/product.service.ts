@@ -11,7 +11,7 @@ export class ProductService{
 
     foundIndex:number=0;
     
-
+    //For setting the url to access products in in-memory-web-api
     public url="api/products";
 
     products:IProduct[]=[];
@@ -22,6 +22,7 @@ export class ProductService{
 
     constructor(private http: HttpClient){}
 
+    //For getting all the products
     getProducts():Observable<IProduct[]>{
         return this.http.get<IProduct[]>(this.url).pipe(
             tap(data=>{
@@ -31,6 +32,7 @@ export class ProductService{
         );
     }
 
+    //For error handling
     errorHandler=(err:any)=>{
 
         let errorMessage:string;
@@ -51,10 +53,12 @@ export class ProductService{
      
        }
 
+       //For changing the selected product
        changeSelectedProduct(selectedProduct: IProduct | null):void{
            this.selectedProductSource.next(selectedProduct);
        }
 
+       //For creating a new initial product
        newProduct():IProduct{
            return {
                id:'',
@@ -69,6 +73,7 @@ export class ProductService{
            };
        }
 
+       //For Creating a new product
        createProduct(product: IProduct):Observable<IProduct>{
 
         const headers= new HttpHeaders({'Content-Type':'application/json'});
@@ -84,6 +89,7 @@ export class ProductService{
         )
        }
 
+       //For deleting a product
        deleteProduct(id: string):Observable<{}>{
 
         const headers= new HttpHeaders({'Content-Type':'application/json'});
@@ -99,6 +105,7 @@ export class ProductService{
         );
        }
 
+       //For Updating a product
        updateProduct(product: IProduct):Observable<IProduct>{
 
         const headers= new HttpHeaders({'Content-Type':'application/json'});
@@ -115,6 +122,7 @@ export class ProductService{
         );
        }
 
+       //For getting a product by id
        getProductById(id:string):Observable<IProduct>{
         
         return this.getProducts().pipe(

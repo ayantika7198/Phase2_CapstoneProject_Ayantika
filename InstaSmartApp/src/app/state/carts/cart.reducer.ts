@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { CartState, initialCartState } from "./cart.state";
 import * as CartActions from './cart.actions';
 
+/*Ngrx reducer for cartitems*/
 export const cartReducer= createReducer<CartState>(
     initialCartState,
 

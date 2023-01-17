@@ -10,10 +10,12 @@ export class ContactusComponent implements OnInit{
 
   addContact!:FormGroup;
 
+  //Injecting the FormBuilder
   constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(): void {
     
+    //Creating the add contact form group by giving proper validations
     this.addContact=this.formBuilder.group({
       firstname:['',[Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       lastname:['',[Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
@@ -23,11 +25,12 @@ export class ContactusComponent implements OnInit{
     });
   }
 
+  //The function will be called when we want to show any error message upon filling wrong inputs in the form
   public myError = (controlName: string, errorName: string) =>{
     return this.addContact.controls[controlName].hasError(errorName);
     }
 
-
+    //This function will be called upon submitting
   contactSubmit(){
     alert("Form Submitted Successfully");
   }

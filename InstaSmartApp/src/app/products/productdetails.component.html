@@ -1,3 +1,5 @@
+<!--It will show the product details-->
+
 <div class="container">
     <div class="card" style="padding: 40px; border:none;" id="imageName">
         <img class="card-img-top" [src]="prd?.imageUrl" alt="Card image cap" width="400px" height="350px" style="border: 5px gray solid;">
@@ -7,6 +9,7 @@
       </div>
       <div class="card" style="margin-left: 50px; border:none;" id="details">
         <div class="card-body">
+          <!--The Product details are shown in form of table-->
             <table class="table table-hover table-secondary table-striped table-bordered tbl">
                 <tbody>
                   <tr>
@@ -47,9 +50,13 @@
               </div>-->
 
 
+
+              <!--ADD TO CART Button is here to add the product into cart-->
               <div class="cartbutton">
                   <button class="btn btn-success" id="addCart" style="width: 90%;" (click)="addToCart(prd)"><i class="material-icons" style="margin-right: 8px;">shopping_cart</i>ADD TO CART</button>
               </div>
+
+              <!--Back To Products Button is here to continue shopping-->
               <div class="back">
                 <button class="btn btn-danger" id="back" style="width: 90%;" (click)="back()">BACK TO PRODUCTS</button>
               </div>

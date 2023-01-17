@@ -7,12 +7,15 @@ import { AuthService } from "./authservice";
 })
 export class AuthGuard implements CanActivate{
 
+    //injecting authservice and router
     constructor(private authService:AuthService, private router:Router){}
 
+    //canactivate in authguard confirms that the user should be logged in before going to products or cart
     canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot):boolean{
         return this.checkLoggedIn(state.url);
     }
 
+    //this method is for checking that the user is logged in or not
     checkLoggedIn(url:string):boolean{
 
         if(this.authService.isLoggedIn()){

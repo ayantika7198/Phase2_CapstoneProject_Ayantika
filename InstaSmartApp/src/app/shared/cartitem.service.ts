@@ -8,6 +8,7 @@ import { IProduct } from "../products/product";
 })
 export class CartitemService{
 
+    //url for accessing the cartitems in in-memory-web-api
     public url="api/cartitems";
 
     //pay:boolean=true;
@@ -19,6 +20,7 @@ export class CartitemService{
 
     constructor(private http:HttpClient){}
 
+    //Fetches all products from cart
     getProducts():Observable<IProduct[]>{
 
         return this.http.get<IProduct[]>(this.url).pipe(
@@ -27,6 +29,7 @@ export class CartitemService{
         );
     }
 
+    //Handling the error
     errorHandler=(err:any)=>{
 
         let errorMessage:string;
@@ -47,6 +50,7 @@ export class CartitemService{
      
        }
 
+       //returning initial new cartitem
        newProduct():IProduct{
         return {
             id:'',
@@ -61,10 +65,12 @@ export class CartitemService{
         };
     }
 
+    //changing the selected product in cartitem
     changeSelectedProduct(selectedProduct: IProduct|null):void{
         this.selectedProductSource.next(selectedProduct);
     }
 
+    //creating a new cartitem
     createProduct(product: IProduct):Observable<IProduct>{
 
      const headers= new HttpHeaders({'Content-Type':'application/json'});
@@ -80,6 +86,7 @@ export class CartitemService{
      )
     }
 
+    //deleting a particular cartitem
     deleteProduct(id: string):Observable<{}>{
 
      const headers= new HttpHeaders({'Content-Type':'application/json'});

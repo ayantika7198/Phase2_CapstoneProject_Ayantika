@@ -1,4 +1,4 @@
-
+<!--Payment Page is here-->
 <div class="parent">
     <div class="div1">
 <div class="container" *ngIf="cont1">
@@ -7,16 +7,18 @@
         InstaSmart
     </div>
     <div class="card-body">
+      <!--Here we can apply coupons-->
         <div>
       <button class="btn btn-success btn-lg" (click)="apply()" style="width: 70%;">Apply Coupons</button>
       </div>
+      <!--Here we can pay with netbanking-->
       <div>
       <button class="btn btn-success btn-lg" style="width:70%">Pay With NetBanking</button>
       </div>
     </div>
 
 
-
+    <!--Pay with card is here-->
     <div class="container2">
         <div class="card text-center">
             <div class="card-header" style="font-style: italic;">
@@ -24,6 +26,8 @@
             </div>
             <div class="card-body">
                 <form [formGroup]="addPayment">
+
+                  <!--Form field for Credit Card Number-->
                     <div class="example-container">
                         <mat-form-field hintLabel="Max 12 numbers" appearance="fill" class="full-width-field">
                             <mat-label>Enter Credit Card Number</mat-label>
@@ -35,6 +39,8 @@
                           </mat-form-field>
                     </div>
 
+
+                    <!--Form field for Credit Card Holder Name-->
                     <div class="example-container">
                         <mat-form-field hintLabel="Max 30 characters" appearance="fill" class="full-width-field">
                             <mat-label>Enter Card Holder Name</mat-label>
@@ -45,6 +51,8 @@
                             
                           </mat-form-field>
                     </div>
+
+                    <!--Form DatePicker for Credit Card Expiry Date-->
                     <div class="example-container">
 
                     <mat-form-field appearance="fill">
@@ -56,6 +64,7 @@
                       </mat-form-field>
                       </div>
 
+                      <!--Form field for Credit Card Cvv-->
                     <div class="example-container">
                         <mat-form-field hintLabel="Max 3 characters" appearance="fill" class="full-width-field">
                             <mat-label>Enter CVV</mat-label>
@@ -67,6 +76,7 @@
                           </mat-form-field>
                     </div>
 
+                    <!--Button for Completing the Payment-->
                     <button id="btn1" [disabled]='!addPayment.valid ||!addPayment.dirty' class="btn btn-success" (click)="afterPay()">SUBMIT</button>
                 
                   </form>
@@ -78,11 +88,12 @@
   </div>
 
   
-
+<!--It will be shown after the payment-->
   <div class="afterpay" *ngIf="cont2">
     <p style="color: green; text-align: center; font-size: 40px; font-weight: bold; font-style: italic;">Thank You for Shopping With Us</p>
     <p style="color: green; text-align: center; font-size: 40px; font-weight: bold; font-style: italic;">Continue your Shopping</p>
     <div style="text-align: center; width: 100%;">
+      <!--By Clicking this button we can continue our shopping-->
         <button class="btn btn-success" (click)="shop()" style="width: 50%;">Continue Shopping</button>
     </div>
   </div>

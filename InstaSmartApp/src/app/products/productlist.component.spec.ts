@@ -6,10 +6,12 @@ import { StoreModule } from '@ngrx/store';
 
 import { ProductlistComponent } from './productlist.component';
 
+//Describing the ProductList Component
 describe('ProductlistComponent', () => {
   let component: ProductlistComponent;
   let fixture: ComponentFixture<ProductlistComponent>;
 
+  //Declaring the component and importing the modules
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductlistComponent ],
@@ -17,23 +19,28 @@ describe('ProductlistComponent', () => {
     })
     .compileComponents();
 
+    //Creating Testbed for component
     fixture = TestBed.createComponent(ProductlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
+  //it tests that component should be created or not
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  //it tests that filter by category is there or not
   it('should render the Filter By Category',()=>{
     expect(fixture.debugElement.query(By.css('#filterCategory'))).toBeTruthy();
   });
 
+  //it tests that filter by price is there or not
   it('should render the Filter By Price',()=>{
     expect(fixture.debugElement.query(By.css('#filterPrice'))).toBeTruthy();
   });
 
+  //it tests that heading is proper or not
   it('should render the heading and show List Of Products',()=>{
 
     expect(fixture.debugElement.query(By.css('#heading'))).toBeTruthy();
@@ -43,6 +50,7 @@ describe('ProductlistComponent', () => {
 
   });
 
+  //it tests that the products are rendering properly or not
   it('should render products correctly',()=>{
 
     component.products=[
@@ -65,6 +73,7 @@ describe('ProductlistComponent', () => {
 
   });
 
+  //it tests that the add, edit, delete button should be disabled for user
   it('should check the add, edit, delete is hidden when logged in as user',()=>{
     component.showIcon=false;
 

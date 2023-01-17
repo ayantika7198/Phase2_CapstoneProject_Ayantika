@@ -3,6 +3,8 @@ import { getTestBed, inject, TestBed } from "@angular/core/testing";
 import { IProduct } from "../products/product";
 import { CartitemService } from "./cartitem.service"
 
+
+//Describing the cartitem service test cases
 describe('CartitemService',()=>{
 
     let service:CartitemService;
@@ -18,6 +20,7 @@ describe('CartitemService',()=>{
       });
 
     beforeEach(()=>{
+        //configuring the testbed
         TestBed.configureTestingModule({
             imports:[HttpClientTestingModule],
             providers:[CartitemService]
@@ -32,10 +35,12 @@ describe('CartitemService',()=>{
         items=[];
     });
 
+    //it tests that the cartitem service should be created or not
     it('should be created',()=>{
         expect(service).toBeTruthy();
       });
 
+      //it tests that the getcartitems should return all the cart items
     it('should check the getCartitems() method',
     inject([HttpTestingController,CartitemService],
         (httpMock:HttpTestingController,service:CartitemService)=>{
@@ -53,6 +58,7 @@ describe('CartitemService',()=>{
 
     ));
 
+    //it tests that createcartitem should create a new cartitem
     it('should check the createCartitem() method',()=>{
 
         const item:IProduct={
@@ -76,6 +82,7 @@ describe('CartitemService',()=>{
      req.flush(item);
     });
 
+    //it tests the functionality of delete cartitem
     it('should check the deleteCartitem() method',()=>{
 
         const item2:IProduct={
@@ -98,5 +105,5 @@ describe('CartitemService',()=>{
        expect(req.request.method).toBe('DELETE');
        req.flush(item2);
 
-    })
+    });
 })

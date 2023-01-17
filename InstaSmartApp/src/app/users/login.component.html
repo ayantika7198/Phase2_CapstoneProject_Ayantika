@@ -1,3 +1,5 @@
+<!--This is the Login Page-->
+
 <html>
   <head></head>
   <body>
@@ -17,27 +19,30 @@
                 <h2 class="fw-bold mb-2 text-uppercase" id="heading">Login</h2>
                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
                 <form  #loginForm="ngForm" name="loginForm" (ngSubmit)="onSubmit(loginForm)">
-  
+                  
+                  <!--Form field for UserName-->
                 <div class="form-outline form-white mb-4">
                   <input type="text" id="username" name="username" #username="ngModel" ngModel required class="form-control form-control-lg" />
                   <label class="form-label" for="typeEmailX">Username</label>
                 </div>
   
+                <!--Form field for Password-->
                 <div class="form-outline form-white mb-4">
                   <input type="password" id="password" name="password" #password="ngModel" ngModel required class="form-control form-control-lg" />
                   <label class="form-label" for="typePasswordX">Password</label>
                 </div>
   
                
-  
+                <!--Button to Login-->
                 <button class="btn btn-outline-light btn-lg px-5" id="login" type="submit" [disabled]="!loginForm.valid">Login</button>
                 
+                <!--Button to cancel login and back to home-->
                 <div style="margin-top:20px">
                   <button class="btn btn-danger" id="cancel" routerLink='/'>Cancel</button>
                 </div>
               
               </form>
-
+              <!--It will be rendered if the user has not given correct username and password-->
               <div class="alert alert-danger" role="alert" *ngIf="showAlert" style="margin-top: 10px;">
                 Please Provide Correct Username and Password
               </div>

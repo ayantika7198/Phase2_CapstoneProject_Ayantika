@@ -9,6 +9,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomepageComponent {
 
+  //It will inject the carousal config and set the configurations like interval
   constructor(config: NgbCarouselConfig) {
 		config.interval = 10000;
 		config.wrap = false;
@@ -16,6 +17,7 @@ export class HomepageComponent {
 		config.pauseOnHover = false;
 	}
 
+  //This is the image objects
   images = [
     {title: 'First Slide', short: 'First Slide Short', src: "../../assets/images/home1.jpg"},
     {title: 'Second Slide', short: 'Second Slide Short', src: "../../assets/images/home2.jpg"},

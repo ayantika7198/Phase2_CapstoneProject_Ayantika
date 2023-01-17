@@ -4,6 +4,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { IProduct } from "../products/product";
 import { of } from "rxjs";
 
+
+//Describing the product service testcases
 describe('ProductService',()=>{
     let service:ProductService;
 
@@ -19,6 +21,7 @@ describe('ProductService',()=>{
 
     beforeEach(()=>{
 
+        //configuring the testbed
         TestBed.configureTestingModule({
             imports:[HttpClientTestingModule],
             providers:[ProductService]
@@ -201,10 +204,12 @@ describe('ProductService',()=>{
         ];
     });
 
+    //it tests that the product service should be there
     it('should be created',()=>{
         expect(service).toBeTruthy();
       });
     
+      //it tests that the getallproducts method should return all the products
       it('should getAllProducts',
       inject([HttpTestingController,ProductService],
         (httpMock:HttpTestingController,service:ProductService)=>{
@@ -224,6 +229,7 @@ describe('ProductService',()=>{
       }
     ));
 
+    //it tests that createproduct should post the product
     it('createProduct() should post a product and return the product',()=>{
 
         const item:IProduct={
@@ -249,6 +255,7 @@ describe('ProductService',()=>{
 
     });
 
+    //it tests that the updateproduct should update the product
     it("updateProduct() should Update The Product and return the product",()=>{
 
         const item2:IProduct={
@@ -273,6 +280,7 @@ describe('ProductService',()=>{
 
     });
 
+    //it tests that the getproductbyid should fetch the product by its id
     it("should check getProductById() method",()=>{
 
         let response:IProduct;
@@ -296,6 +304,7 @@ describe('ProductService',()=>{
      expect(fn).toHaveBeenCalled();
     });
 
+    //it tests that the deleteproduct should delete a product
     it('should check deleteProduct() method',()=>{
 
         const item4:IProduct={
@@ -317,7 +326,7 @@ describe('ProductService',()=>{
        req.flush(item4);
 
 
-    })
+    });
 
 
 })
