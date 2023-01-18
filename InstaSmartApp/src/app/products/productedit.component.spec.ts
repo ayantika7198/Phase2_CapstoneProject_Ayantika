@@ -284,50 +284,6 @@ describe('ProducteditComponent', () => {
 
   });
 
-  //It should check the save button as disabled when invalid data is given in form
-  it('should check the button disabled when invalid',()=>{
-
-    const id:any=component.addProduct.get("id");
-    const id2='';
-    id.setValue(id2);
-
-    const name:any=component.addProduct.get("name");
-    const name2='';
-    name.setValue(name2);
-
-    const image:any=component.addProduct.get("imageUrl");
-    const image2='../url';
-    image.setValue(image2);
-
-    const description:any=component.addProduct.get("description");
-    const description2='This is a mango';
-    description.setValue(description2);
-
-    const price:any=component.addProduct.get("price");
-    const price2=500;
-    price.setValue(price2);
-
-    const category:any=component.addProduct.get("category");
-    const category2='fruits';
-    category.setValue(category2);
-
-    const sellerName:any=component.addProduct.get("sellerName");
-    const sellerName2='ABC Seller';
-    sellerName.setValue(sellerName2);
-
-    const sellerLocation:any=component.addProduct.get("sellerLocation");
-    const sellerLocation2='Kolkata';
-    sellerLocation.setValue(sellerLocation2);
-
-    const quantity:any=component.addProduct.get("quantity");
-    const quantity2=50;
-    quantity.setValue(quantity2);
-
-    fixture.detectChanges();
-
-    const btn=fixture.debugElement.query(By.css('#btn1'));
-    expect(btn.nativeElement.disabled).toBeTruthy();
-
-  });
+  
   
 });

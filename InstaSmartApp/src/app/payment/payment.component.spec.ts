@@ -54,12 +54,7 @@ describe('PaymentComponent', () => {
     expect(fixture.debugElement.query(By.css('.cvv'))).toBeTruthy();
   });
 
-  //It tests the form control name of credit card number
-  /*it('should check the formControlName of Card Number',()=>{
-    const card=fixture.debugElement.query(By.css('.card'));
-    const card2=card.nativeElement.getAttribute('formControlName');
-    expect(card2).toEqual('card');
-  });*/
+  
 
   //it tests the form control name of credit card holder name
   it('should check the formControlName of Card Holder Name',()=>{
@@ -85,19 +80,7 @@ describe('PaymentComponent', () => {
 
   });
 
-  //it tests the input type of card number
-  /*it('should check the input type of card number',()=>{
-
-    const card3=fixture.debugElement.query(By.css('.card'));
-
-    const card:any=component.addPayment.get("card");
-    const card2='789067894563';
-    card.setValue(card2);
-
-    fixture.detectChanges();
-
-    expect(card3.nativeElement.value).toEqual(card2);
-  });*/
+  
 
   //it tests the input type of card holder name
   it('should check the input type of card holder name',()=>{
